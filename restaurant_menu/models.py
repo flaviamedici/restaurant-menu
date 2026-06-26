@@ -1,3 +1,28 @@
+from django.contrib.auth.models import User
 from django.db import models
+from django.contrib.auth.models import User
 
-# Create your models here.
+DISH_TYPE = (
+    ("starters", "Starters"),
+    ("salads", "Salads"),
+    ("main_dishes", "Main Dishes"),
+    ("desserts", "Desserts")
+)
+
+STATUS = (
+    (0, "Unavailable"),
+    (1, "Available")
+)
+
+class Item(models.Model):
+    dish = models.CharField(max_length=1000, unique=True)
+    description = models.CharField(max_length=2000)
+    price = models.DecimalField(decimal_places=2, max_digits=10)
+    category = models.CharField(max_length=200, choices=DISH_TYPE)
+    author = models.ForeignKey(User, on_delete=models.PROTECT)
+    status = models.IntegerField(choices=STATUS, default=0)
+    date_created = models.DateTimeField(auto_now_add=True)
+    date_modified = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return self.dish
