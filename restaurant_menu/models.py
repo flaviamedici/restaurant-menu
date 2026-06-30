@@ -3,9 +3,11 @@ from django.db import models
 from django.contrib.auth.models import User
 
 DISH_TYPE = (
-    ("starters", "Starters"),
+    ("appetizers", "Appetizers"),
     ("salads", "Salads"),
     ("main_dishes", "Main Dishes"),
+    ("gluten_free", "Gluten_free"),
+    ("drinks", "Drinks"),
     ("desserts", "Desserts")
 )
 

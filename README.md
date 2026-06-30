@@ -178,7 +178,23 @@ http://127.0.0.1:8000/
 ```
 
 ---
+## 8. Create and admin user
 
+```bash
+python manage.py createsuperuser
+Username:
+Email address:
+Password:
+```
+
+Open your browser and type:
+
+```text
+http://127.0.0.1:8000/admin
+```
+
+
+---
 # 📱 QR Code Support
 
 This project uses the **qrcode** and **Pillow** libraries to generate QR codes that can be used to provide customers with quick access to the restaurant's digital menu.
