@@ -5,8 +5,19 @@
     <title>Title</title>
 </head>
 <body>
-<h1>Restaurant Menu</h1>
-<h3>{{ meals }}</h3>
-<h3>{{ ingredients }}</h3>
+    <h1>Restaurant Menu</h1>
+    {% for dish in dishes %}
+        <h3>{{ dish.1 }}</h3>
+        {% for row in item_list %}
+        {% if row.category == dish.0 %}
+            {% if row.status == 0 %}
+            <h3><del>{{ row.dish }}</del></h3>
+            <p>{{ row.description }}</p>
+            {% else %}
+            <h3><del>{{ row.dish }}</del></h3>
+            <p>{{ row.description }}</p>
+        {% endif %}
+        {% endfor %}
+    {% endfor %}
 </body>
 </html>
